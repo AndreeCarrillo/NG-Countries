@@ -1,0 +1,48 @@
+<app-navbar></app-navbar>
+<div class="home">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+<mat-form-field  style=" width: 1000px; padding:40px 50px;" appearance="fill">
+    <mat-label style="display: flex; align-items: center;">
+        <mat-icon style="font-size: 25px;">search</mat-icon>
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        Search for country
+    </mat-label>
+    <input color="primary" type="text" matInput (keyup)="filterPaises($event)" >
+</mat-form-field>
+<mat-form-field style=" width: 300px; padding:40px 50px;" appearance="fill">
+    <mat-label>Filter by Region</mat-label>
+    <mat-select  (selectionChange)="onSelectChange($event)">
+        <mat-option value="All">All</mat-option>
+        <mat-option value="Africa">Africa</mat-option>
+        <mat-option value="America">America</mat-option>
+        <mat-option value="Asia">Asia</mat-option>
+        <mat-option value="Europe">Europe</mat-option>
+        <mat-option value="Oceania">Oceania</mat-option>
+    </mat-select>
+    <input type="text" matInput>
+</mat-form-field>
+</div>
+<div ngClass="container">
+    <ng-container *ngFor="let pais of allCountrys" >
+        <mat-card class="example-card">
+            <mat-card-header style="align-items: center; padding-bottom: 16px;" >
+                <mat-card-title style="font-size: 20px;"><b>{{pais.name.common}}</b></mat-card-title>    
+            </mat-card-header>
+            <img mat-card-image src={{pais.flags.png}}>        
+            <mat-card-content style="padding: 15px 16px;">
+                <p style="padding: 2px 0;"><b>Population:</b> {{pais.population}}</p>
+                <p style="padding: 2px 0;"><b>Region:</b> {{pais.region}}</p>
+                <p style="padding: 2px 0;"><b>Capital:</b> {{pais.capital}}</p>
+            </mat-card-content>
+            <mat-card-actions  style="align-items: center; justify-content: center; background: #3f51b5; border-radius: 0 0 10px 10px;" >
+                <a routerLink="/country/{{pais.name.common}}" style=" text-decoration: none; display: flex; align-items: center; color: white;" >
+                    <mat-icon>open_in_new</mat-icon>
+                    <span>&nbsp;&nbsp;&nbsp;</span>
+                    Mas Informacion
+                </a>
+            </mat-card-actions>
+        </mat-card>
+    </ng-container>
+</div>
+</div>
+

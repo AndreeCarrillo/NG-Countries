@@ -1,0 +1,30 @@
+<app-navbar ></app-navbar>
+<div style="background-color:rgb(240, 240, 240); height: 100%; width: 100%;">
+    <button (click)="volverHome()" style="margin: 20px 20px;" mat-raised-button color="primary"><mat-icon style="background-color: rgba(255, 0, 0, 0);">arrow_back</mat-icon>Regresar</button>
+    <br>
+    <div style="display: flex; flex-direction: row; justify-content: space-around; align-items: center; flex-wrap: wrap; padding: 70px 50px;" >
+        <img src="{{paisSeleccionado.flags.svg}}">
+        <div style="display: flex; flex-direction: column; align-content: space-around; justify-content: space-around; padding: 10px 0 0 0;">
+            <h1>{{paisSeleccionado.name.common}}</h1>
+            <div style="display: flex; flex-direction: row;">
+                <div style="display: flex; flex-direction: column; margin: 0 30px 0 0 ;">
+                    <p><b> Native Name:</b><span>&nbsp;&nbsp;&nbsp;</span>{{paisSeleccionado.name.official}}</p>
+                    <p><b>Population:</b> <span>&nbsp;&nbsp;&nbsp;</span>{{paisSeleccionado.population}}</p>
+                    <p><b>Region:</b> <span>&nbsp;&nbsp;&nbsp;</span>{{paisSeleccionado.region}}</p>
+                    <p><b>Subregion:</b><span>&nbsp;&nbsp;&nbsp;</span>{{paisSeleccionado.subregion}}</p>
+                </div>
+                <div style="display: flex; flex-direction: column; margin: 0 0 0 30px;">
+                    <p><b>Capital:</b> <span>&nbsp;&nbsp;&nbsp;</span>{{paisSeleccionado.capital}}</p>
+                    <p><b>Top Level Domain:</b><span>&nbsp;&nbsp;&nbsp;</span> {{paisSeleccionado.tld}}</p>
+                    <p><b>Area:</b> {{paisSeleccionado.area}}</p>               
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: row; align-items: center; flex-wrap: wrap; padding: 20px 0;" >
+                <b>Border Countries: </b>
+                <div *ngFor="let border of paisSeleccionado.borders" style="display: flex; flex-direction: row;">
+                    <a (click)="definirCode(border)" style="color: white; padding: 5px; margin: 10px; cursor: pointer; background-color: rgb(124, 119, 119);">{{border}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<mat-toolbar color="primary" style="padding: 15px;">
+    <mat-toolbar-row>
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <h1>Where in the World</h1>
+        <span class="example-spacer"></span>
+            <ng-container *ngIf="dark_active;else dark">
+                <a style="cursor: pointer;" ngClass="darkLink" (click)="cambioMode()">
+                    <mat-icon>light_mode</mat-icon>   
+                    <span>&nbsp;&nbsp;&nbsp;</span>         
+                    <span>Light Theme</span>
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                </a>                
+            </ng-container>
+            <ng-template #dark>
+                <a style="cursor: pointer;" ngClass="darkLink" (click)="cambioMode()">
+                    <mat-icon>dark_mode</mat-icon>   
+                    <span>&nbsp;&nbsp;&nbsp;</span>         
+                    <span>Dark Theme</span>
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                </a>  
+            </ng-template>
+    </mat-toolbar-row>
+</mat-toolbar>
